@@ -1,0 +1,5 @@
+services:
+  mongodb:
+    image: mongo:7-jammy
+    container_name: mongodb
+   
