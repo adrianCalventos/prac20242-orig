@@ -16,7 +16,7 @@
 
 En aquest projecte trobareu l'estructura i fitxers necessaris per començar amb la pràctica.
 
-El directori 📂 `app`conté el fitxers del servidor web `Flask`. Aquest directori 🖐 NO s'ha de modificar.
+El directori 📂 `app`conté el fitxers del servidor web. Aquest directori 🖐 NO s'ha de modificar.
 
 👉 Cal afegir el fitxers necessaris a  📁 `reverse-proxy` per configurar el reverse proxy i modificar els diferents `Dockerfile` corresponents i el fitxer `docker-compose`en funció de cada un dels exercicis.
 
@@ -25,6 +25,6 @@ El directori 📂 `app`conté el fitxers del servidor web `Flask`. Aquest direct
 
 En este proyecto encontraréis la estructura y archivos necesarios para empezar con la práctica.
 
-El directorio 📂 `app` contiene los archivos del servidor web `Flask`. Este directorio 🖐 NO debe modificarse.
+El directorio 📂 `app` contiene los archivos del servidor web. Este directorio 🖐 NO debe modificarse.
 
 👉 Hay que añadir los archivos necesarios a 📁 `reverse-proxy` para configurar el reverse proxy y modificar los diferentes `Dockerfile` correspondientes y el archivo `docker-compose` en función de cada uno de los ejercicios.
