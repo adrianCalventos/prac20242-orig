@@ -1,0 +1,14 @@
+{
+  "name": "app",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun-plugin-tailwind": "^0.0.15",
+    "tailwindcss": "^4.0.11"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module"
+}
