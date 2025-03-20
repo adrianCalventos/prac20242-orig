@@ -6,7 +6,7 @@ const reactProps = reactive({
   created: null
 })
 
-fetch("/api")
+fetch("/api/recipes")
   .then(resp => resp.json())
   .then(json => {
     Object.assign(reactProps, json)
@@ -16,7 +16,7 @@ fetch("/api")
 const app = createApp(() => h({
   props: ['receipts', 'student', 'created'],
   setup(props) {
-    const title = 'ARSO 2024-1'
+    const title = 'ARSO 2024-2'
     const fmtCreated = computed( () =>  
       new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short'}).format(new Date(props.created))
     )

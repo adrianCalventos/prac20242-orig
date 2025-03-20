@@ -1,14 +1,14 @@
-# 🏫  UOC 2024/2025-1
+# 🏫  UOC 2024/2025-2
 
 - [Aula català](#📂-fitxers-per-la-pràctica)
 - [Aula castellano](#📂-archivos-para-la-práctica)
 
 ```bash
-|- flask-app
+|- bun-app
 |  |- app
 |- reverse-proxy
 |- docker-compose.yml
-|- dbdata
+|- dataset
 
 ```
 

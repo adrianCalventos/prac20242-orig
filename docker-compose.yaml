@@ -1,5 +1,5 @@
 services:
-  mongodb:
-    image: mongo:7-jammy
-    container_name: mongodb
+  db:
+    image: postgres:17.4
+    container_name: dbhost
    

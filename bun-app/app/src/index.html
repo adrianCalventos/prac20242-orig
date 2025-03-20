@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/static/app.css" rel="stylesheet">
-  <script type="module" src="/static/main.js"></script>
-  <script src="/static/confetti.browser.min.js"></script>
-  <title>ARSO/AXSO 2024-1</title>
+  <link href="./app.css" rel="stylesheet">
+  <script type="module" src="./main.js"></script>
+  <script src="./confetti.browser.min.js"></script>
+  <title>ARSO/AXSO 2024-2</title>
 </head>
 <style is:global>
   :root {
@@ -27,15 +27,15 @@
   <template id="main">
     <div class="max-w-[1000px]">
       <header class="fixed w-screen top-0 backdrop-blur-md z-10">
-        <img src="/static/logo_uoc.png" class=" w-72 px-2 py-4">
+        <img src="./logo_uoc.png" class=" w-72 px-2 py-4">
       </header>
       <main class="flex flex-col gap-4 px-4 py-32 justify-center">
         <section class="flex flex-col gap-4 lg:flex-row justify-start items-stretch">
           <box class="flex flex-col justify-center items-center flex-1 w-full">
             <div
-              class="text-6xl text-center font-semibold text-transparent pb-8  bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text ">
+              class="text-6xl text-center font-semibold text-transparent pb-8  bg-gradient-to-tl from-amber-500 to-yellow-400 bg-clip-text ">
               {{ title }}</div>
-            <div class="text-xl self-center text-orange-500">🥳 Congratulations ‼ the site work!! 🎉 👏 👏 </div>
+            <div class="text-xl self-center text-teal-500">🥳 Congratulations ‼ the site work!! 🎉 👏 👏 </div>
           </box>
           <box v-if="receipts.length" class="flex flex-col items-center justify-center w-full flex-1">
             <div class="text-xl font-bold">Your database response is: </div>
@@ -111,7 +111,7 @@
             </g>
           </svg>
 
-          <span class="ml-1">{{ receipt.times.Cooking }}</span>
+          <span class="ml-1">{{ receipt.t_cooking }}</span>
         </span>
 
         <span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -120,7 +120,7 @@
               d="M8.5 9V2A1.5 1.5 0 0 0 7 .5h0A1.5 1.5 0 0 0 5.5 2v7a2.5 2.5 0 1 0 3 0Z" />
           </svg>
 
-          <span class="ml-1">{{ receipt.difficult }}</span>
+          <span class="ml-1">{{ receipt.t_difficult }}</span>
         </span>
       </div>
     </article>
