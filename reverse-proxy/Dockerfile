@@ -1,1 +1,2 @@
-#complete this file in the exercise 3
+FROM haproxy:2.9
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg

@@ -10,12 +10,13 @@ services:
       - dbdata:/var/lib/postgresql/data
       - ./dataset/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
       - ./dataset/recipes-data.csv:/docker-entrypoint-initdb.d/recipes-data.csv:ro
+    networks:
+      - db-network
+
   web:
     build: bun-app
     container_name: webhost
     working_dir: /app
-    ports:
-      - "5000:3000"
     depends_on:
       - db
     env_file:
@@ -26,6 +27,27 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_HOST=dbhost
       - POSTGRES_PORT=5432
+    networks:
+      - web-network
+      - db-network
+
+  proxy:
+    build:
+      context: ./reverse-proxy
+    container_name: prozyhost
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    networks:
+      - web-network
 
 volumes:
   dbdata:
+
+networks:
+  web-network:
+    name: web-network
+  db-network:
+    name: db-network
