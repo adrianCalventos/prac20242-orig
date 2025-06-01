@@ -2,4 +2,28 @@ services:
   db:
     image: postgres:17.4
     container_name: dbhost
-   
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./dataset/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./dataset/recipes-data.csv:/docker-entrypoint-initdb.d/recipes-data.csv:ro
+  web:
+    build: bun-app
+    container_name: webhost
+    working_dir: /app
+    ports:
+      - "5000:3000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=dbhost
+      - POSTGRES_PORT=5432
+
+volumes:
+  dbdata:
