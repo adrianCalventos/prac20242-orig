@@ -1,6 +1,6 @@
 FROM oven/bun:latest
 WORKDIR /app
-COPY ../app /app
+COPY ../app /app/
 COPY server.py /app/server.py
 
 RUN if [ -f package.json ]; then bun install; fi
