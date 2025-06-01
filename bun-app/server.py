@@ -9,13 +9,16 @@ def get_env(key, default=None):
 
 async def api_recipes(request):
     try:
-        conn = await asyncpg.connect(
-            user=get_env("POSTGRES_USER"),
-            password=get_env("POSTGRES_PASSWORD"),
-            database=get_env("POSTGRES_DB", "dbname"),
-            host=get_env("POSTGRES_HOST", "localhost"),
-            port=int(get_env("POSTGRES_PORT", 5432)),
-        )
+        # Debug: imprime los parámetros de conexión
+        db_params = {
+            "user": get_env("POSTGRES_USER"),
+            "password": get_env("POSTGRES_PASSWORD"),
+            "database": get_env("POSTGRES_DB", "dbname"),
+            "host": get_env("POSTGRES_HOST", "localhost"),
+            "port": int(get_env("POSTGRES_PORT", 5432)),
+        }
+        print("Intentando conectar a la base de datos con:", db_params, flush=True)
+        conn = await asyncpg.connect(**db_params)
         rows = await conn.fetch("SELECT * FROM recipes")
         receipts = [dict(row) for row in rows]
         await conn.close()
@@ -25,7 +28,8 @@ async def api_recipes(request):
             "created": None
         })
     except Exception as e:
-        return web.json_response({"error": str(e)}, status=500)
+        print("Error al conectar o consultar la base de datos:", str(e), flush=True)
+        return web.json_response({"error": f"DB error: {str(e)}"}, status=500)
 
 async def spa_handler(request):
     # Intenta servir el archivo si existe, si no, sirve index.html
